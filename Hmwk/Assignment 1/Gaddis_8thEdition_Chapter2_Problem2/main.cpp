@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
    float revenue = 64e-2f; //Percent of Revenue gained by East Coast company, 64%
    
    //Calculations
-   int total = ecsles * revenue;  //Amount of money gained by East Coast 
+  int total = ecsles * revenue;  //Amount of money gained by East Coast 
    //Display Output
    cout << "The total amount of revenue the East Coast will generate is $" << total;
    //Exit Stage Right
