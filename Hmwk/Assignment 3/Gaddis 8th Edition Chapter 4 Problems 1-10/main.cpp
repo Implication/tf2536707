@@ -68,7 +68,7 @@ int main(int argc, char** argv) {
              }
              case 2:{
                cout << "The roman numeral for " << num << "  is II";
-                 break;
+                 break; break;
              }
              case 3:{
                  cout << "The roman numeral for " << num << "  is III";
@@ -106,7 +106,9 @@ int main(int argc, char** argv) {
                  cout << "Invalid input. Run the program again and enter a number from 1 to 10 next time.";
                  break;
              }
+            
          }
+         break;
      }
      case 3:{
          //Gaddis 8th edition Chapter 4 Problem 3
@@ -136,6 +138,7 @@ int main(int argc, char** argv) {
          }
          else //Otherwise the date sucks
              cout << "This date is not magic";
+         break;
      }
      case 4:{
          //Gaddis 8th edition Chapter 4 Problem 4
@@ -165,7 +168,7 @@ int main(int argc, char** argv) {
          }
          else
              cout << "The areas of both rectangles are equal" << endl;
-         
+       break;  
      }
      case 5:{
          //Gaddis 8th Edition Chapter 4 Problem 5
@@ -190,6 +193,7 @@ int main(int argc, char** argv) {
          else{
              cout << "You have earned 60 points" << endl;
          }
+         break;
      }
      case 6:{
          //Gaddis 8th Edition Chapter 4 Problem 6
@@ -216,7 +220,7 @@ int main(int argc, char** argv) {
          }
          else
              cout << "Congratulations, you have entered exactly the amount of 1 dollar!";
-
+         break;
          
      }
      case 7:{
@@ -238,6 +242,7 @@ int main(int argc, char** argv) {
        if(sec >= 60 && sec <= 3600){
            cout << "The number of minutes in these number of seconds is " << sec/60;
        }
+       break;
     }
      case 8:{
          //Gaddis 8th Edition Chapter 4 Problem 8
@@ -261,6 +266,7 @@ int main(int argc, char** argv) {
         }
         else
             cout << "Incorrect, the answer is " << num1 + num2;
+        break;
      }
      case 9:{
          //Gaddis 8th Edition Chapter 4 Problem 9
@@ -293,6 +299,7 @@ int main(int argc, char** argv) {
          else{
               cout << setprecision(2) << fixed << showpoint << "The total of this purchase is $" << total - (total * .5);
          }
+         break;
      }
      case 10:{
          //Gaddis 8th Edition Chapter 4 Problem 10
@@ -314,7 +321,7 @@ int main(int argc, char** argv) {
       }
       else
          cout << setprecision(2) << fixed << showpoint << "The total amount this month is $" << (checks * .04) + 10;
- 
+      break;
      }
 //Exit Stage right
     return 0;
