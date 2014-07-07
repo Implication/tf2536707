@@ -9,6 +9,7 @@
 #include <iostream>
 #include <cstdlib> //Problem 8
 #include <ctime> //Problem 8
+#include <iomanip> //Problem 9 && 10
 using namespace std;
 
 //User Defined Libraries
@@ -261,8 +262,62 @@ int main(int argc, char** argv) {
         else
             cout << "Incorrect, the answer is " << num1 + num2;
      }
- }
- //Exit Stage right
+     case 9:{
+         //Gaddis 8th Edition Chapter 4 Problem 9
+// Inputs
+         unsigned short units; //Number of units purchased
+// Outputs
+         float total; //Amount of money total for number of purchases
+//Get the number of units
+         cout << "Enter the nubmer of units purchased: " << endl;
+         cin >> units;
+         while(units < 0){
+             cout << "Invalid input. Please reenter the price";
+             cin >> units;
+         }
+//Calculations
+         total = units * 99;
+//Display output based on number of units purchased
+         if(units < 10){
+             cout << setprecision(2) << fixed << showpoint <<  "The total of this purchase is $" << total;
+         }
+         else if(units >=10 && units <=19){
+              cout << setprecision(2) << fixed << showpoint << "The total of this purchase is $" << total - (total * .2);
+         }
+         else if(units >=20 && units <=49){
+              cout << setprecision(2) << fixed << showpoint << "The total of this purchase is $" << total - (total * .3);
+         }
+         else if(units >=50 && units <=99){
+              cout << setprecision(2) << fixed << showpoint << "The total of this purchase is $" << total - (total * .4);
+         }
+         else{
+              cout << setprecision(2) << fixed << showpoint << "The total of this purchase is $" << total - (total * .5);
+         }
+     }
+     case 10:{
+         //Gaddis 8th Edition Chapter 4 Problem 10
+//Input
+      unsigned short checks; //Number of checks written in the past month
+
+//Get the number of checks written
+      cout << "Enter the amount of checks written during the past month:" << endl;
+      cin >> checks;
+//Display output based on user input
+      if(checks < 20){
+          cout << setprecision(2) << fixed << showpoint << "The total amount this month is $" << (checks * .10) + 10;
+      }
+      else if(checks >= 20 && checks <=39){
+          cout << setprecision(2) << fixed << showpoint << "The total amount this month is $" << (checks * .08) + 10;
+      }
+      else if(checks >=40 && checks <=59){
+         cout << setprecision(2) << fixed << showpoint << "The total amount this month is $" << (checks * .06) + 10;
+      }
+      else
+         cout << setprecision(2) << fixed << showpoint << "The total amount this month is $" << (checks * .04) + 10;
+ 
+     }
+//Exit Stage right
     return 0;
+}
 }
 
