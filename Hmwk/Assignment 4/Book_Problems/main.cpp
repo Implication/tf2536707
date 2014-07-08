@@ -19,7 +19,10 @@ using namespace std;
 
 
 int main(int argc, char** argv) {
-    unsigned short choice; //Choice made by the user to see a problem doen in the book
+    
+    unsigned short choice; //Choice made by the user to see a problem doe in the book
+    char x;
+    do {
     cout << "Enter a number from 1 through 10 to see a problem done in the book." << endl;
     cin >> choice;
     while(choice < 0 || choice > 10){
@@ -35,6 +38,7 @@ int main(int argc, char** argv) {
          if(c != 32 && c % 16 == 0){
             cout << endl;
         }
+         cout << endl;
     }
     break;
     }
@@ -50,19 +54,25 @@ int main(int argc, char** argv) {
             for(inc; inc <= total; inc++){
                  sum += inc;
             }
-            cout << "The sum of all the numbers up to " << total << " is " << sum;
+            cout << "The sum of all the numbers up to " << total << " is " << sum << endl;
             break;
         }
-        case 3:{
-            // Gaddis 8th Edition Chapter 5 Problem 21
-            unsigned short test; //Input number of lines for the test
-            cout << "Enter the number of lines for the pattern of a arrow";
-            cin >> test;
-            for(unsigned short x = 0; x < test; x++ ){
-                for(unsigned short y = 0; y < )
+        case 3:{ 
+        //Gaddis 8th Edition Chapter 5 Problem 21
+            unsigned char x;
+            unsigned int spaces = 8;
+            for(short j = 0; j < spaces; j++){
+             for(short k = 0; k < j; k+=1){
+                    cout << "+";
+                }
+                   
+                cout << endl;
             }
         }
     }
+    cout << "Another Problem? (Press y for yes):" << endl;
+    cin >> x;
+    }while (x == 'y' || x == 'Y');
     return 0;
 }
 
