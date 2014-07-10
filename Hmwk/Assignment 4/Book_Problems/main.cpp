@@ -9,7 +9,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
-#include <time>
+#include <ctime>
 using namespace std;
 
 //User Defined Libraries
@@ -35,14 +35,14 @@ int main(int argc, char** argv) {
     switch(choice){
          case 1:{
            // Gaddis 8th Edition Chapter 5 Problem 1
-         char c = 32; // variable that stores the number 32
+         unsigned char c = 32; // variable that stores the number 32
          for(c; c < 127; c++){ //Loop to display, each ASCII Character from 32 to 127
          cout << c << " ";
-         if(c != 32 && c % 16 == 0){
+         if(c != 32 && c % 16 == 15){
             cout << endl;
         }
-         cout << endl;
     }
+    cout << endl; 
     break;
     }
         case 2:{
@@ -124,6 +124,7 @@ int main(int argc, char** argv) {
             break;
         }
         case 5:{
+            //Gaddis 8th Edition Chapter 5 Problem 5
             //Declare variables
             unsigned short kph = 40;
             cout << right << setw(6) << "KPH" << right << setw(8) << "MPH" << endl;
@@ -135,7 +136,7 @@ int main(int argc, char** argv) {
             break;
         }
         case 6:{
-            //Gaddis 8th Edition Chapter 5 Problem 17
+            //Gaddis 8th Edition Chapter 5 Problem 17 Hotel
             unsigned short occ;
             bool isF;
             unsigned short total = 0;
@@ -154,7 +155,108 @@ int main(int argc, char** argv) {
             break;
         }
         case 7:{
+            //Gaddis 8th Edition Chapter 5 Problem 10 Number guess
+            short ans, guess; //Random generated answer based on seed, and the guess inputed by user
+            unsigned short seed; //Seed for the random generator
+            seed = time(0); 
+            srand(seed); 
+            //Calculations for random answer
+            ans = rand() % 100 + 1;
+            //Get user input
+            cout << "Enter a number guess betwee 1 and 100" << endl;
+            cin >> guess;
+            while(guess != ans){ //Loop until the guess is correct
+                if(guess < ans){
+                    cout << "This number is to low guess again: ";
+                    cin >> guess;
+                }
+                else{
+                    cout << "This number is to high guess again: ";
+                    cin >> guess;
+                }
+            }
+            //Output this, when the guess is equal to the random number
+            cout << "Congratulations you finally got the right number" << endl;
+            break;
+        }
+        case 8:{
+            //Gaddis 8th Edition Chapter 5 Problem 11 Enchancement
+            short ans, guess, count = 0; //Random generated answer based on seed, and the guess inputed by user, counter to track number of guesses
+            unsigned short seed; //Seed for the random generator
+            seed = time(0);
+            srand(seed);
+            //Calculations for random answer
+            ans = rand() % 100 + 1;
+            //Get user input
+            cout << "Enter a number guess betwee 1 and 100" << endl;
+            cin >> guess;
+            while(guess != ans){//Loop until the guess is correct
+                  if(count == 5){//When the user guesses 5 times, this will display
+                    cout << "Wow..." << endl;
+            }
+                    if(count == 10){//When the user guesses 10 times, this will display
+                    cout << "Taking you way to long..." << endl;
+                count++;
+            }
+                    if(count == 20){//When the user guesses 20 times, this will display
+                    cout << "At this point you just suck. No more comments." << endl;
+                count++;
+            }
             
+                if(guess < ans){
+                    cout << "This number is to low guess again: ";
+                    cin >> guess;
+                }
+                else{
+                    cout << "This number is to high guess again: ";
+                    cin >> guess;
+                }
+                  count++;
+            
+        }
+              //Output this, when the guess is equal to the random number 
+            cout << "Congratulations you finally got the right number!" << endl;
+            cout << "It only took you " << count << " times but hey, I'm not judging." << endl; //This outputs the total number of guesses
+            break;
+        }
+        case 9:{
+            //Gaddis 8th Edition Chapter 5 Problem 14
+            //Declare variables
+            unsigned short inf;//Annual rate of inflation
+            float hold;
+            float money = 1000;
+            //Get rate of inflation
+            cout << "Enter the annual rate of inflation: " << endl;
+            cin >> inf;
+            hold = 1.0/((inf/100.0) + 1);
+            for(unsigned char x = 1; x <= 10; x++){
+                money*=hold;
+                cout << "$1000.00 dollars in " << static_cast<unsigned short>(x) << " year is worth $"
+                     << setprecision(2) << fixed << showpoint << money << "." << endl;
+            }
+        }
+        case 10:{
+            //Gaddis  8th Edition Chapter 5 Problem 12
+            //Declare variables
+            int min, max; //Maximum and minimum values entered by the user
+            int x; //Numbers entered by the user
+            //Get first input
+            cout << "Enter a series of integers. When done Enter -99 to continue: " << endl;
+            cin >> x;
+            //Set max and min equal to the first input OUTSIDE the loop
+            min = x;
+            max = x;
+            while(x != -99){
+                cin >> x;
+                if(max < x){ //If the x entered next is bigger than the max, then set max = to this x
+                    max = x;
+                }
+                if(min > x){ // If the x entered next is smaller than this min, then set min = to this x
+                    min = x;
+                }
+            }
+            cout << "The minimum value entered in this scope is " << min << endl; //Displays the minimum value
+            cout << "The maximum value entered in this scope is " << max << endl; //Displays the maximum value
         }
     }
     cout << "Another Problem? (Press y for yes):" << endl;
