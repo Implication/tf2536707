@@ -7,6 +7,9 @@
 
 //System Defined Libraries
 #include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <time>
 using namespace std;
 
 //User Defined Libraries
@@ -58,16 +61,100 @@ int main(int argc, char** argv) {
             break;
         }
         case 3:{ 
-        //Gaddis 8th Edition Chapter 5 Problem 21
-            unsigned char x;
-            unsigned int spaces = 8;
-            for(short j = 0; j < spaces; j++){
-             for(short k = 0; k < j; k+=1){
-                    cout << "+";
+            //Gaddis 8th Edition Chapter 5 Problem 21
+            //Declare variables
+            char sym; //Symbol user wishes to output
+            unsigned short lines; //Number of lines based on symmetry
+            unsigned short plus = 1; //Initial increment for symbol in the code
+            cout << "This program displays an arrowhead using nested loops. **I modified this for user input for the heck of it.**" << endl;
+            cout << "Enter the number of lines of symmetry" << endl;
+            cin >> lines;
+            cout << "Enter the symbol you would like to see for this program" << endl;
+            cin >> sym;
+            //First part of the arrowhead.
+            for(char j = 0; j < lines; j++){ //Loops until the number of lines are hit
+                unsigned short spaces = 0;
+                while(spaces < lines){ //First puts out  characters of blank spaces based on number of lines
+                    cout << " "; 
+                    spaces++;
                 }
-                   
+                for(short k = 0; k < plus; k++){ //Inner loop which adds the pattern after the number of spaces
+                    cout << sym;
+                }
+                plus+=2; //Increments the character, which in this case is a character by 2
+                cout << endl; //Goes to the next lines, increasing the amount of line spaces, repeating the loop
+            }
+            //Middle part of the arrowhead
+            for(char mid = 0; mid < plus + lines; mid++){ //This prints the very middle of it, which is equal to the number of characters, + the number of lines
+                cout << sym; 
+            }
+            cout << endl;
+            //Last lines of the arrowhead
+            for(char x = 0; x < lines; x++){
+                unsigned short spaces = 0;
+                while(spaces < lines){
+                    cout << " ";
+                    spaces++;
+                }
+                for(short k = 0; k < plus -2; k++){
+                    cout << sym;
+                }
+                plus-=2;
                 cout << endl;
             }
+            break;
+        }
+        case 4:{
+            //Gaddis 8th Edition Chapter 5 Problem 3
+            //Declare variables
+            unsigned short time; // time in which a vehicle travels
+            float distance, speed; // Total distance the vehicle has traveled, and the speed in which the vehicle travels
+            cout << "What is the speed of the vehicle in mph? ";
+            cin >> speed;
+            cout << "\nHow many hours hat it traveled? ";
+            cin >> time;
+            cout << "\nHour";
+            cout << right << setw(18) << "Miles Traveled" << endl;
+            cout << string(26,'-') << endl;
+            //Calculate the distance in the loop
+                for(unsigned short d = 1; d <= time; d++){
+                    distance = speed * d;
+                    cout << setw(4) << d << setw(8) << static_cast<short>(distance) << endl;
+                }
+            break;
+        }
+        case 5:{
+            //Declare variables
+            unsigned short kph = 40;
+            cout << right << setw(6) << "KPH" << right << setw(8) << "MPH" << endl;
+            cout << string(22, '-') << endl;
+            for(kph; kph <= 120; kph+=5){
+                unsigned short mph = kph * 0.6214;
+                cout << setw(6) << kph << setw(8) << mph << endl;
+            }
+            break;
+        }
+        case 6:{
+            //Gaddis 8th Edition Chapter 5 Problem 17
+            unsigned short occ;
+            bool isF;
+            unsigned short total = 0;
+            float perc;
+            for(unsigned floor = 10; floor <= 16; floor++){
+                if(floor != 13){
+                    isF = true;
+                    cout << "How many occupants are on floor " << floor << "?";
+                    cin >> occ;
+                    total+=occ;
+                }   
+            }
+            perc = (total/120.0) * 100;
+            cout << "This hotel has 120 suites. Out of those suites " << total << " are occupied or " << setprecision(2) 
+                  << fixed << showpoint << perc << "% occupancy";
+            break;
+        }
+        case 7:{
+            
         }
     }
     cout << "Another Problem? (Press y for yes):" << endl;
