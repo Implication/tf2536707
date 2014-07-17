@@ -1,0 +1,23 @@
+Number of games to:                    11
+Number of total games played, including ties: 16
+
+Number of wins for the user:      5
+Number of losses for the user:    6
+Number of ties produced this game:      7
+
+Number of successful times the tiger was used by user: 2
+Number of successful times the wolf was used by user: 2
+Number of successful times the bear was used by user: 1
+
+Number of times the computer used the tiger:     5
+Number of times the computer used the wolf:      9
+Number of times the computer used the bear:      4
+
+Number of successful times the tiger was used by computer: 2
+Number of successful times the wolf was used by computer: 3
+Number of successful times the bear was used by computer: 1
+
+Success rate of Tiger for computer: 40.00%
+Success rate of Bear for computer: 25.00%
+Success rate of Wolf for computer: 33.33%
+
