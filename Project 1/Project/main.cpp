@@ -43,6 +43,9 @@ int main(int argc, char** argv) {
     unsigned short sBea2 = 0; //Number of successful times the computer used the bear
     unsigned short sTig2 = 0; //Number of successful times the computer used the tiger
     //User related data
+    unsigned short uTig = 0; //Number of times the user used the tiger
+    unsigned short uBea = 0; //Number of times the user used the bear
+    unsigned short uWol = 0; //Number of times the user used the wolf
     unsigned short sTig = 0; //Number of successful times the tiger was used by user
     unsigned short sBea = 0; //Number of successful times the bear was used by user
     unsigned short sWol = 0; //Number of successful times the wolf was used by the user
@@ -90,19 +93,21 @@ int main(int argc, char** argv) {
     if(input == 't'){ //If the user selects a tiger verses a wolf he wins
         cout << "The tiger swallows the wolf in its last effort to survive." << endl;
         cout << "You have won this round." << endl << endl;
-        wins++;
+        wins++; //Number of wisn the user has
+        uTig++; //Number of times the user used the tiger
         aWol++; //Number of times the wolf was used by computer total
-        total++;
+        total++; //Total number of games played regardless of ties
         sTig++; //Successful nubmer of tiems the wolf was used by the computer
     }
     else if(input == 'w'){ //If the user selects a wolf agaisnt a wolf, it ends in a tie
         cout << "The wolves stare at each other "
                 "in agony as they find respect for the other." << endl;
         cout << "This round is a tie." << endl << endl;
-        ties++;
+        ties++; //Number of ties in the game
+        uWol++; //Number of times the user used the wolf
         i--; //Decrements the counter for a tie, in order to have a winner result
         aWol++; //Total number of times teh wolf was used
-        total++; 
+        total++; //Total number of games played regardless of ties
     }
     else{ //If the user selects a bear vs a wolf, he gets hunted by a pack and loses.
         cout << "As the Bear goes down the forest, the wolf attacks in an onslaught pack." << endl;
@@ -111,6 +116,7 @@ int main(int argc, char** argv) {
         aWol++; //Total number of tiems the wolf was used
         total++; //Increments the total number of games regardless of total
         sWol2++; //Successful times the wolf was used by computer
+        uBea++;
     }
     break;
     }
@@ -122,6 +128,7 @@ int main(int argc, char** argv) {
                 i--; //Decrements the counter due to the tie.
                 aTig++; //Number of times the tiger was used total
                 total++; //Increments the total number of games regardless of the tie
+                uTig++; //Number of times user used the tiger
             }
             else if(input == 'w'){
                 cout << "As the wolf runs away from the tiger, it remembers it's lost son. Losing all fear it turns back to get slaughtered." << endl;
@@ -129,6 +136,7 @@ int main(int argc, char** argv) {
                 losses++; //Increments the number of losses user related
                 aTig++; //Nubmer of times the tiger was used by the computer total
                 sTig2++; //Number of successful times the tiger was used by computer
+                uWol++; //Number of times user used the wolf
             }
             else{
                 cout << "The bear sees the tiger pridefully on the mountaintop. The lung toward the bear allows the bear to swiftly end the tiger." << endl;
@@ -137,6 +145,7 @@ int main(int argc, char** argv) {
                 aTig++; //AI's tiger counter
                 total++; //Increments the total number of games, regardless of ties
                 sBea++; //User successful Bear counter
+                uBea++; //Number of times user used the bear
             }
            
         
@@ -150,6 +159,7 @@ int main(int argc, char** argv) {
             aBea++; //Number of times the bear was used by the computer total
             total++; //Number of games play total, regardless of tes
             sBea2++; //Number of successful times the bear was used by the computer
+            uTig++; //Number of times the user used the tiger
             }
             else if(input == 'w'){
                 cout << "The wolf descends upon the helpless bear as it sips on the honey tree." << endl;
@@ -158,6 +168,7 @@ int main(int argc, char** argv) {
                 aBea++; //Ai's use of bear counter
                 total++; //Total number of games played
                 sWol++; //User's successful use of tiger
+                uTig++; //Number of tiems the user used the tiger
             }
             else{
                 cout << "The bears walk around the tree waiting for a chance to lick the tree."  << endl;
@@ -166,15 +177,24 @@ int main(int argc, char** argv) {
                 i--; //Decrements the counter of games, since this is a tie
                 aBea++; //Number of times the bear was used total
                 total++; //Increments the toatl number of games regardless of ties
+                uBea++; // Number of times the user used the bear
             }
            break;         
         }
     }
     }
+    
+    //Display the winner
+    if(wins > losses){
+        cout << "You have won the game congratulations. You have served the animal kingdom well." << endl << endl;
+    }
     //Calculations for percentage success
-    perT2 = (1.0 * sTig2/aTig) * 100;
-    perW2 = (1.0 * sWol2/aWol) * 100;
-    perB2 = (1.0 * sBea2/aBea) * 100;
+    perT2 = (1.0 * sTig2/aTig) * 100; //Calculates the success rate for computer's use of tiger
+    perW2 = (1.0 * sWol2/aWol) * 100; //Calculates the success rate for computer's use of wolf
+    perB2 = (1.0 * sBea2/aBea) * 100;//Calculates the success rate for computer's use of bear
+    perT = (1.0 * sTig/uTig) * 100; //Calculates the success rate for the users use of tiger
+    perW = (1.0 * sWol/uWol) * 100; //Calculates the success rate for the users use of wolf
+    perB = (1.0 * sBea/uBea) * 100; //Calculates the success rate for the users use of bear
     //Display information on console
     cout << "Details of the game are on the file game.dat, located in the same file as this program" << endl;
     output << "Number of games to: " << setw(21) << games << endl;
@@ -183,9 +203,16 @@ int main(int argc, char** argv) {
     output << "Number of wins for the user: " << setw(6) << wins << endl;
     output << "Number of losses for the user: " << setw(4) << losses << endl;
     output << "Number of ties produced this game: " << setw(6) <<  ties << endl << endl;
+      //Display the data for the user
+    output << "Number of times the tiger was used by user: " << uTig << endl;
+    output << "Number of times the wolf was used by user: " << uWol << endl;
+    output << "Number of times the bear was used by user: " << uBea << endl << endl;
     output << "Number of successful times the tiger was used by user: " << sTig << endl;
     output << "Number of successful times the wolf was used by user: " << sWol << endl;
     output << "Number of successful times the bear was used by user: " << sBea << endl << endl;
+    output << "Success rate of Tiger for computer: " << setprecision(2) << fixed << showpoint << perT << "%" << endl;
+    output << "Success rate of Bear for computer: " << setprecision(2) << fixed << showpoint << perB << "%" << endl;
+    output << "Success rate of Wolf for computer: " << setprecision(2) << fixed << showpoint << perW << "%" <<  endl << endl;
     //Displays results of the computer
     output << "Number of times the computer used the tiger: " << setw(5) << aTig << endl;
     output << "Number of times the computer used the wolf: " << setw(6) << aWol << endl;
