@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
     srand(seed); //places the number in the random generator
     unsigned short ai; //Computer commands for the game
     ai = rand() % 3 + 1; //Needed for the computer to select 3 random commands
-    
+    char cond; //Used to get the condition to play again 
     char input; //User input based on the first letter of the animal
     unsigned int games; //Number of games a player may wish to embark upon 
     
@@ -63,6 +63,7 @@ int main(int argc, char** argv) {
     unsigned int wins = 0; //Shows the number of wins 
     unsigned int losses = 0; //Shows the number of losses
     unsigned int ties = 0; //Shows the number of ties
+    do{
     cout << "Welcome to the game Animal Kingdom. This ever changing game" << endl;
     cout << "was made with the thought of rock paper scissors in mind. For the purpose" << endl;
     cout << "of this game, we will use the tiger a bear, and a wolf. Wolves dominates bears, Bears" << endl;
@@ -225,6 +226,9 @@ int main(int argc, char** argv) {
     output << "Success rate of Wolf for computer: " << setprecision(2) << fixed << showpoint << perW2 << "%" <<  endl << endl;
     
     output.close();
+    cout << "Again? *Note this will wipe out any data in file from previous game*. Enter y for yes" << endl;
+    cin >> cond;
+    while(cond == 'Y' || cond == 'y');
     return 0;
 }
 
