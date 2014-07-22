@@ -68,9 +68,9 @@ int main(int argc, char** argv) {
     cout << "was made with the thought of rock paper scissors in mind. For the purpose" << endl;
     cout << "of this game, we will use the tiger a bear, and a wolf. Wolves dominates bears, Bears" << endl;
     cout << "dominate Tigers and Tigers dominate Wolves. You need to compete with the AI 5 times in order" << endl;
-    //Get user input for the animal they wish to select
     cout << "to win. If the AI however manages to defeat you 5 times then you lose. Now lets begin the game!" << endl << endl;
     cout << "Enter the number of games you wish to embark upon" << endl;
+    //Get the number of games
     cin >> games;
     while(games % 2 == 0){
         cout << "Please enter an odd number of games so a winner can be announced" << endl;
@@ -78,6 +78,7 @@ int main(int argc, char** argv) {
     }
     for(unsigned int i = 0; i < games; i++){
     ai = rand() % 3 + 1; //Recalculated in the loop in order to reset the generator  
+    //Get user input for the animal they wish to select
     cout << "Enter the command for the animal you wish to select.  t for Tiger, b for Bear, and w for wolves." << endl;
     cin >> input; 
     cout << endl;
@@ -122,7 +123,7 @@ int main(int argc, char** argv) {
     break;
     }
         case 2:{ //If the number is 2, it is a tiger
-            if(input == 't'){
+            if(input == 't'){ 
                 cout << "The tiger comes back to his home, to find another tiger staring at him in confusion." << endl;
                 cout << "This round is a tie." << endl << endl;
                 ties++; //Increments the number of ties in this game
@@ -131,7 +132,7 @@ int main(int argc, char** argv) {
                 total++; //Increments the total number of games regardless of the tie
                 uTig++; //Number of times user used the tiger
             }
-            else if(input == 'w'){
+            else if(input == 'w'){ 
                 cout << "As the wolf runs away from the tiger, it remembers it's lost son. Losing all fear it turns back to get slaughtered." << endl;
                 cout << "You have lost this round." << endl << endl;
                 losses++; //Increments the number of losses user related
@@ -169,7 +170,7 @@ int main(int argc, char** argv) {
                 aBea++; //Ai's use of bear counter
                 total++; //Total number of games played
                 sWol++; //User's successful use of tiger
-                uTig++; //Number of tiems the user used the tiger
+                uWol++; //Number of tiems the user used the wolf
             }
             else{
                 cout << "The bears walk around the tree waiting for a chance to lick the tree."  << endl;
@@ -228,7 +229,8 @@ int main(int argc, char** argv) {
     output.close();
     cout << "Again? *Note this will wipe out any data in file from previous game*. Enter y for yes" << endl;
     cin >> cond;
-    while(cond == 'Y' || cond == 'y');
+    }while(cond == 'Y' || cond == 'y');
+    //Exit Stage Right
     return 0;
 }
 
