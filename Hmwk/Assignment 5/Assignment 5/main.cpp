@@ -49,6 +49,7 @@ int main(int argc, char** argv) {
         //Solve a problem that has been chosen.
         switch(choice){
                 case 1:{
+                    //Gaddis 8th Edition Chapter 6 Problem 1
                     float price, perc; //Price and percentage of the item
                     //Prompt for user information
                     //Get user input
@@ -63,6 +64,7 @@ int main(int argc, char** argv) {
                     break;
                 }
                 case 2:{
+                    //Gaddis 8th Edition Chapter 6 Problem 2
                     //Output table
                     cout << setw(3) <<  "Fahrenheit" << setw(12) <<  "Celsius" << endl;
                     cout << string(23, '-') << endl;
@@ -75,6 +77,7 @@ int main(int argc, char** argv) {
                     break;
                 }
                 case 3:{
+                    //Gaddis 8th Edition Chapter 6 Problem 3
                     //Output a table from 0 to 20 showing the falling distance
                     for(unsigned short t = 0; t <= 10; t++){
                         cout << "At " << t << " seconds the falling distance is ";
@@ -84,6 +87,7 @@ int main(int argc, char** argv) {
                     break;
                 }
                 case 4:{
+                    //Gaddis 8th Edition Chapter 6 Problem 4
                     float v; //velocity of an object
                     unsigned short m; //mass on an object
                     float kinetic; //the kinetic energy of an object
@@ -99,6 +103,7 @@ int main(int argc, char** argv) {
                     break;
                 }
             case 5:{
+                //Gaddis 8th Edition Chapter 6 Problem 5
                 float s1, s2, s3, s4;
                 
                s1 = getSale("Northeast");
@@ -109,6 +114,7 @@ int main(int argc, char** argv) {
                break;
             }
             case 6:{
+                //Gaddis 8th Edition Chapter 6 Problem 6
                 string s1, s2;
                 string uS1, uS2;
                 cout << "Enter the first name" << endl;
@@ -128,6 +134,7 @@ int main(int argc, char** argv) {
                 break;
             }
             case 7:{
+                //Gaddis 8th Edition Chapter 6 Problem 7
                 //Declare the 4 variables
                 short s1,s2,s3,s4,s5; //The five score totals
                 //Call function scores
@@ -137,6 +144,7 @@ int main(int argc, char** argv) {
                 break;
             }
             case 8:{
+                //Gaddis 8th Edition Chapter 6 Problem 8
                 //Declare the scores
                 float s1,s2,s3,s4,s5;
                 //Pass into the void function scores
@@ -146,6 +154,7 @@ int main(int argc, char** argv) {
                 break;
             }
             case 9:{
+                //Gaddis 8th Edition Chapter 6 Problem 9
                 //Declare varaibles
                 int number;
                 //Prompt for the number to test
@@ -161,6 +170,7 @@ int main(int argc, char** argv) {
                 break;
             }
             case 10:{
+                //Gaddis 8th Edition Chapter 6 Problem 10
                 unsigned short n; //Number of years
                 float F; //Future value the user wants
                 float r; //Annual interest rate
