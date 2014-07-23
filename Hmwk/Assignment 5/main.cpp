@@ -31,7 +31,8 @@ float findLow(float& , float&,  float& , float& , float& ); //Problem 7
 float findHig(float&, float&, float&, float&, float&); //Problem 8
 void calcAverage(short&, short&, short&, short&, short&); // Problem 7
 void calcAverage(float&, float&, float&, float&, float&); // Problem 8
-bool isPrime(int number);
+bool isPrime(int number); //Problem 9
+float PV(float F, unsigned short years, float rate); //Problem 10
 
 
 //Execution begins here
@@ -136,15 +137,21 @@ int main(int argc, char** argv) {
                 break;
             }
             case 8:{
+                //Declare the scores
                 float s1,s2,s3,s4,s5;
+                //Pass into the void function scores
                 scores(s1,s2,s3,s4,s5);
+                //Calculate average in the void function calcAverage
                 calcAverage(s1,s2,s3,s4,s5);
                 break;
             }
             case 9:{
+                //Declare varaibles
                 int number;
+                //Prompt for the number to test
                 cout << "Enter the number:" << endl;
                 cin >> number;
+                //Validates whether the function is true or false
                 if(isPrime(number)){
                     cout << "This number is prime" << endl;
                 }
@@ -152,6 +159,23 @@ int main(int argc, char** argv) {
                     cout << "This number is not prime" << endl;
                 }
                 break;
+            }
+            case 10:{
+                unsigned short n; //Number of years
+                float F; //Future value the user wants
+                float r; //Annual interest rate
+                cout << "Enter the Future value you wish to get" << endl;
+                cin >> F;
+                cout << "Enter the number of years you plan to let the money sit in the account" << endl;
+                cin >> n;
+                cout << "Enter the annual interest rate of the bank you will place this money in" << endl;
+                cin >> r;
+              float P =  PV(F,n,r);
+              cout << setprecision(2) << fixed << showpoint << "The amount you would need to deposit to get the future value today is $" << P << "." << endl;
+              break;
+            }
+            default :{
+                cout << "You choose a problem that dosent exist. Exiting Loop..." << endl;
             }
             cout << "Again? Enter y for yes" << endl;
             cin >> cond;
@@ -345,10 +369,15 @@ void calcAverage(float& s1, float& s2, float& s3, float& s4, float& s5){
     cout << "The average is " << setprecision(1) << fixed << showpoint << ave << endl;
 }
 
+/*This funcion is used to find whether a number is Prime
+ or not. It uses a for look from 2 to the number less than 1
+ in order to test if that number % by the increment value is equal to zero
+ if its true, then it is not a prime number, and returns to main, however if its true
+ then isPrime is set to true*/
 bool isPrime(int number){
-    bool isPrime;
+    bool isPrime = true;
     if(number == 1 || number == 2){
-        isPrime = true;
+        isPrime;
     }
     else{
         for(int n = 2; n < number - 1; n++){
@@ -356,11 +385,13 @@ bool isPrime(int number){
                 isPrime = false;
                 return isPrime;
             }
-            else{
-                isPrime = true;
-            }
-           
             }
         }
     return isPrime;
     }
+
+float PV(float F, unsigned short years, float rate){
+    float den = pow((1+rate),years);
+    float P = F/den;
+    return P;
+}
