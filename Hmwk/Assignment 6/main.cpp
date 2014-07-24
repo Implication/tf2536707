@@ -13,7 +13,7 @@
 using namespace std;
 
 //User Defined Libraries
-
+#include "Product.h"
 
 //Global Constants
 
@@ -215,6 +215,14 @@ int main(int argc, char** argv) {
                 double a[12];
                 report(a);
                 break;
+            }
+            case 8:{
+                Product j[5];
+                
+                cout << "Enter the names of the 5 Products followed by the amount it sold" << endl;
+                for(short x = 0; x <=4; x++){
+                    
+                }
             }
             default:{
                 cout << "There are only 10 problems! Please restart the loop" << endl;

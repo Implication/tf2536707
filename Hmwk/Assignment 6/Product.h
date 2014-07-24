@@ -10,6 +10,9 @@
 #ifndef PRODUCT_H
 #define	PRODUCT_H
 class Product{
+private:
+    short _jars;
+    std::string _name;
 public:
     Product(){
        _jars = 0;
@@ -20,11 +23,15 @@ public:
         _name = n;
     }
     
-    string getName
+    void setName(std::string n){
+        _name = n;
+    }
     
-private:
-    short _jars;
-    std::string _name;
+    void setJars(short j){
+        _jars = j;
+    }
+    
+
 };
 
 
