@@ -26,6 +26,7 @@ double avgRf(double array[12]);
 short dM(double array[12]);
 short wM(double array[12]);
 void report(double array[12]);
+int search(int list[], short size, int value);
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -212,18 +213,96 @@ int main(int argc, char** argv) {
                 break;
             }
             case 7:{
+                //Declare variables
                 double a[12];
+                //Call function Report
                 report(a);
+                //Exit case 7
                 break;
             }
             case 8:{
                 Product j[5];
-                
-                cout << "Enter the names of the 5 Products followed by the amount it sold" << endl;
+                short jars;
+                string name;
+                short highest = 0;
+                string name1;
+                string name2;
+                short total = 0;
                 for(short x = 0; x <=4; x++){
+                    cout << "Enter the name of the product: " << endl;
+                    cin >> j[x].name;
+                    cout << "Enter the numer of items it sold: " << endl;
+                    cin >> j[x].jars;
+                    total += j[x].jars;
+                }
+                short lowest = j[0].jars;
+                for(short x = 0; x <=4; x++){
+                    cout << j[x].name << " sold " << j[x].jars << " jars." << endl;
+                    if(highest < j[x].jars){
+                        highest = j[x].jars;
+                        name1 = j[x].name;
+                    }
+                    if(lowest > j[x].jars){
+                        lowest = j[x].jars;
+                        name2 = j[x].name;
+                    }
+                }
+                cout << "The most amount of jars sold was the " << name1 << " product with a sale of " << highest << " jars" << endl;
+                cout << "The lowest amount of jars sold was the " << name2 << " product with a sale of " << lowest << " jars" << endl;
+                
+                break;
+            }
+            
+            case 9:{
+                int num[18] = { 5658845, 4520125, 7895122, 8777541, 8451277, 1302850,
+                                8080152, 4562555, 5552012, 5050552, 7825877, 1250255,
+                                1005231, 6545231, 3852085, 7576651, 7881200, 4581002 };
+                
+                int acc;
+                int truth;
+                short size = sizeof(num);
+                
+                cout << "Enter the account number: " << endl;
+                cin >> acc;
+                truth = search(num,size,acc);
+                if(truth != -1){
+                    cout << "This number is valid" << endl;
+                }
+                else{
+                    cout << "This number is invalid" << endl;
+                }  
+                    break;
+            }
+                case 10:{
+                    int num[10] = {13579, 26791, 26792, 33445, 5555,
+                               62483, 77777, 79422,85647, 93121 };
+                    short size = sizeof(num);
+                    int lotto[10];
+                    int truth;
+                    cout << "Enter your ticket numbers: " << endl;
+                    for(short x = 0; x <= 9; x++){
+                         cin >> lotto[x];
+                    }
+                    short k = 1;
+                    
+                    while(k < size){
+                    truth = search(num,size,lotto[k]);
+                    if(truth != -1){
+                        cout << "Congratulations you have entered a winning lotto ticket number" << endl;
+                        break;
+                    }
+                    else{
+                      k++;
+                    }
+                   
+                    break;
+                    } 
+                    if(k = size && truth == -1){
+                    cout << "You did not win with any ticket." << endl;
                     
                 }
-            }
+                    break;
+                }
             default:{
                 cout << "There are only 10 problems! Please restart the loop" << endl;
                 break;
@@ -309,4 +388,19 @@ void report(double array[12]){
     cout << "Average monthly rainfall " << avg << " inches" << endl;
     cout << "The least rain fell in " << month[d] << " with " << array[d] << " inches" << endl;
     cout << "The most rain fell in " << month[w] << " with " << array[w] << " inches" <<  endl;
+}
+
+int search(int list[], short size, int value){
+    short index = 0;
+    int position = -1;
+    bool found = false;
+    
+    while(index < size && !found){
+        if(list[index] == value){
+            found = true;
+            position = index;
+        }
+        index++;
+    }
+    return position;
 }
