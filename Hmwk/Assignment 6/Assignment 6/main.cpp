@@ -37,7 +37,7 @@ int main(int argc, char** argv) {
         cin >> prob;
         switch(prob){
             case 1:{
-                
+                //Gaddis 8th Edition Chapter 8 Problem 1
                 short scores[20]; //Array of scores
                 short perf; //Takes in the number of perfect scores
                 //Get the scores into the array.
@@ -53,6 +53,7 @@ int main(int argc, char** argv) {
                 break;
             }
             case 2:{
+                //Gaddis 8th Edition Chapter 8 Problem 2
                 string roman[20] = { "I", "II", "III", "IV", "V",
                                      "VI", "VII", "VIII", "IX", "X",
                                      "XI", "XII", "XIII", "XIV", "XV",
@@ -68,6 +69,7 @@ int main(int argc, char** argv) {
                 break;
             }
             case 3:{
+                //Gaddis 8th Edition Chapter 8 Problem 3
                 string salsa[5] = {"mild", "medium", "sweet", "hot", "zesty" };
                 short jars[5];
                 short total;
@@ -98,6 +100,7 @@ int main(int argc, char** argv) {
                 break;
             }
             case 4:{
+                //Gaddis 8th Edition Chapter 8 Problem 4
                 string monkey[3] = { "Sal", "Eric", "June"};
                 string day[7] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
                 short pound[3][7];
@@ -133,6 +136,7 @@ int main(int argc, char** argv) {
                     break;
             }
             case 5:{
+                //Gaddis 8th Edition Chapter 8 Problem 5
                 char data[3][30];
                 ifstream file;
                 short totalR = 0;
@@ -187,6 +191,7 @@ int main(int argc, char** argv) {
                 break;
             }
             case 6:{
+                //Gaddis 8th Edition Chapter 8 Problem 6
                 unsigned short seed;
                 seed = time(0);
                 srand(seed);
@@ -213,6 +218,7 @@ int main(int argc, char** argv) {
                 break;
             }
             case 7:{
+                //Gaddis 8th Edition Chapter 8 Problem 7
                 //Declare variables
                 double a[12];
                 //Call function Report
@@ -221,6 +227,7 @@ int main(int argc, char** argv) {
                 break;
             }
             case 8:{
+                //Gaddis 8th Edition Chapter 8 Problem 8
                 Product j[5];
                 short jars;
                 string name;
@@ -254,6 +261,7 @@ int main(int argc, char** argv) {
             }
             
             case 9:{
+                //Gaddis 8th Edition Chapter 9 Problem 1
                 int num[18] = { 5658845, 4520125, 7895122, 8777541, 8451277, 1302850,
                                 8080152, 4562555, 5552012, 5050552, 7825877, 1250255,
                                 1005231, 6545231, 3852085, 7576651, 7881200, 4581002 };
@@ -274,6 +282,7 @@ int main(int argc, char** argv) {
                     break;
             }
                 case 10:{
+                     //Gaddis 8th Edition Chapter 9 Problem 2
                     int num[10] = {13579, 26791, 26792, 33445, 5555,
                                62483, 77777, 79422,85647, 93121 };
                     short size = sizeof(num);
