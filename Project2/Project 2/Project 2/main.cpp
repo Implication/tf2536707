@@ -1,15 +1,14 @@
 /* 
  * File:   main.cpp
  * Author: Trajon Fetlon
- * Created on July 10, 2014, 1:31 PM
  */
-
 //System Libraries
+#include <string>
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <fstream>
-#include <iomanip>
+#include <iomanip> 
 using namespace std;
 
 //User Libraries
@@ -19,11 +18,12 @@ using namespace std;
 
 
 //Function Prototypes
+void set2D(float totalP[2][5],string names[], ofstream& output,int size = 5);
 void prompt();
 float perc(float,float);
 float perc(unsigned short&,unsigned short&);
 void sort(unsigned short arr[],string names[],int size);
-void sort(float arr[],string names[],short size);
+void sort(float arr[],string names[],int size);
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -179,11 +179,12 @@ int main(int argc, char** argv) {
                 aTig++; //Number of times the tiger was used by the computer total
                 sTig2++; //Number of successful times the tiger was used by computer
                 uWol++; //Number of times user used the wolf
+                total++; //Total number of games
             }
             else if(input == 'd'){ //If the user selects a dragon, then there in different domains, and can't do anything
-                cout << "Crouching tiger, Hidden dragon. In this case, tiger overklls the dragon." << endl;
+                cout << "Crouching tiger, Hidden dragon. In this case, tiger gets slain by the dragon." << endl;
                 cout << "You have won this round" << endl << endl;
-                wins++; //Number of ties int eh game
+                wins++; //Number of wins in  the game
                 uDra++; //Number of times the user used the dragon
                 sDra++; //Decrements the number of games, since it is a tie.
                 aTig++; //Number of times the computer used the artifical wolf
@@ -264,41 +265,49 @@ int main(int argc, char** argv) {
     case 4:{ //If the number is 4 it is a dragon
             if(input == 't'){
             cout << "The tiger was completely devastated by the dragon" << endl;
-            cout << "You have won this round" << endl;
-                wins++; //Number of losses in the game
-                sDra2++; //Number of times the computer successfully used the dragon
+            cout << "You have lost this round" << endl;
+                losses++; //Number of losses in the game
+                sDra2++; //Number of times the user used tiger successfully
                 uTig++; //Number of times the user used a tiger
                 total++; //Total number of games
+                aDra++;  //Number of times the computer has used the dragon
             }
             else if(input == 'w'){
                 cout << "The dragon war of 2014. The wolf's came in the thousands. Many were lost, however the dragon was taken down" << endl;
                 cout << "You have won this round" << endl;
                 wins++; //Number of losses in the game
                 uWol++; //Number of times the user used the wolf
-                sDra2++; //Number of dragons that the computer used successfully
+                sWol++; //Number of dragons that the computer used successfully
                 total++; //Total number of games
+                aDra++;  //Number of times the computer has used the dragon
             }
             else if(input == 'b'){
                 cout << "The bear went completely ballistic on the dragon, as he burned his tree, and the dragon slapped him." << endl;
                 cout << "You have lost this round" << endl;
                 losses++; //Number of losses in the game
                 uBea++; //Number of bears that have been used by the user
-                sBea++; //Number of successful times the computer has used the bear
+                sDra2++; //Number of successful times the computer has used the dragon
                 total++; //Total number of games in the computer
+                aDra++;  //Number of times the computer has used the dragon
             }
             else if(input == 'd'){
                 ties++; //Number of ties in the game
                 i--; //Decrements the number of games since this did not count
                 uDra++; //Number of times the user has used the dragon
                 total++; //Total number of games in the system
+                aDra++;  //Number of times the computer has used the dragon
+                total++; //Total number of games 
             }
             else{
+                cout << "Man has conquered dragon once again." << endl;
+                cout << "You have won this round" << endl;
                 wins++; //Total number of wins in the game
                 uMan++; //Total number of times the user has used man
-                sMan++; //Total numver of successful times man was used by the user
+                sMan++; //Total number of successful times man was used by the user
                 total++; //Total number of games
+                aDra++;  //Number of times the computer has used the dragon
             }
-            aDra++; //Number of times the computer has used the dragon
+               
             break;
     }
     case 5:{
@@ -422,7 +431,7 @@ int main(int argc, char** argv) {
     sort(s2,names,5);
     //Display the successful times the computer uses a command for s2
     for(int q = 0; q < 5; q++){
-        output << "Number of successful times " <<  names[q] <<  " was used by computer: " << endl;
+        output << "Number of successful times " <<  names[q] <<  " was used by computer: " << s2[q] << endl;
     }
     output << endl;
     //Reset the array names again
@@ -435,10 +444,7 @@ int main(int argc, char** argv) {
     }
     output << endl;
     names[0] ="Tiger", names[1] = "Bear", names[2] = "Wolf", names[3] = "Dragon", names[4] = "Man";
-    for(int r = 0; r < 5; r++){
-        float num = (totalP[0][r] + totalP[1][r]) / 2;
-        output << "Average success rate of both players for " << names[r] << " is " << num << "%" << endl;
-    }
+    set2D(totalP,names,output);
     output.close();
     //Display prompt to play again
     cout << "Again? *Note this will wipe out any data in file from previous game*. Enter y for yes" << endl;
@@ -514,7 +520,7 @@ void sort(unsigned short arr[], string names[],int size){
 }
 /*Overloaded function that takes in floats instead of shorts
  and uses pointer notation in order to increment the function*/
-void sort(float arr[],string names[],short size){
+void sort(float arr[],string names[],int size){
     bool swap;
     float temp;
     string nameSw;
@@ -534,3 +540,9 @@ void sort(float arr[],string names[],short size){
     }while(swap);
 }
 
+void set2D(float totalP[][5], string names[], ofstream& output,int size){
+        for(int r = 0; r < size; r++){
+        float num = (totalP[0][r] + totalP[1][r]) / 2;
+        output << "Average success rate of both players for " << names[r] << " is " << num << "%" << endl;
+    }
+}

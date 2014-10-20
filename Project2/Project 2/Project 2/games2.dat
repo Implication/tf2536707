@@ -1,48 +1,48 @@
-Number of games to: 11
-Number of total games played, including ties: 13
+Number of games to: 111
+Number of total games played, including ties: 154
 
-Number of wins for the user:       4
-Number of losses for the user:     7
-Number of ties produced this game: 5
+Number of wins for the user:      58
+Number of losses for the user:    53
+Number of ties produced this game: 35
 
-Number of times Wolf was used by user: 6
-Number of times Man was used by user: 4
-Number of times Tiger was used by user: 3
-Number of times Dragon was used by user: 2
-Number of times Bear was used by user: 1
+Number of times Wolf was used by user: 50
+Number of times Dragon was used by user: 42
+Number of times Tiger was used by user: 40
+Number of times Man was used by user: 14
+Number of times Bear was used by user: 0
 
-Number of successful times Tiger was used by user: 1
-Number of successful times Bear was used by user: 1
-Number of successful times Dragon was used by user: 1
-Number of successful times Man was used by user: 1
-Number of successful times Wolf was used by user: 0
+Number of successful times Wolf was used by user: 21
+Number of successful times Dragon was used by user: 16
+Number of successful times Tiger was used by user: 15
+Number of successful times Man was used by user: 6
+Number of successful times Bear was used by user: 0
 
-Success rate of Bear for user: 100.00%
-Success rate of Dragon for user: 50.00%
-Success rate of Tiger for user: 33.33%
-Success rate of Man for user: 25.00%
-Success rate of Wolf for user: 0.00%
+Success rate of Man for user: 42.86%
+Success rate of Wolf for user: 42.00%
+Success rate of Dragon for user: 38.10%
+Success rate of Tiger for user: 37.50%
+Success rate of Bear for user: 0.00%
 
-Number of times the computer used Tiger: 5
-Number of times the computer used Wolf: 4
-Number of times the computer used Man: 4
-Number of times the computer used Bear: 3
-Number of times the computer used Dragon: 0
+Number of times the computer used Wolf: 40
+Number of times the computer used Bear: 33
+Number of times the computer used Tiger: 25
+Number of times the computer used Dragon: 25
+Number of times the computer used Man: 23
 
-Number of successful times Tiger was used by computer: 
-Number of successful times Bear was used by computer: 
-Number of successful times Man was used by computer: 
-Number of successful times Wolf was used by computer: 
-Number of successful times Dragon was used by computer: 
+Number of successful times Bear was used by computer: 16
+Number of successful times Wolf was used by computer: 13
+Number of successful times Man was used by computer: 12
+Number of successful times Tiger was used by computer: 7
+Number of successful times Dragon was used by computer: 5
 
-Success rate of Bear for computer: 66.67%
-Success rate of Tiger for computer: 60.00%
-Success rate of Man for computer: 50.00%
-Success rate of Wolf for computer: 0.00%
-Success rate of Dragon for computer: 0.00%
+Success rate of Man for computer: 52.17%
+Success rate of Bear for computer: 48.48%
+Success rate of Wolf for computer: 32.50%
+Success rate of Tiger for computer: 28.00%
+Success rate of Dragon for computer: 20.00%
 
-Average success rate of both players for Tiger is 46.67%
-Average success rate of both players for Bear is 83.33%
-Average success rate of both players for Wolf is 0.00%
-Average success rate of both players for Dragon is 25.00%
-Average success rate of both players for Man is 37.50%
+Average success rate of both players for Tiger is 32.75%
+Average success rate of both players for Bear is 24.24%
+Average success rate of both players for Wolf is 37.25%
+Average success rate of both players for Dragon is 29.05%
+Average success rate of both players for Man is 47.52%
